@@ -32,17 +32,17 @@ class User
     $this->weight = $weight;
   }
   // get_bmi
-  public function get_bmi()
+  public function get_bmi(): float
   {
     return $this->weight / pow($this->height / 100, 2);
   }
   // get_appropriate_weight
-  public function get_appropriate_weight()
+  public function get_appropriate_weight(): float
   {
     return pow($this->height / 100, 2) * 22;
   }
   // get_result
-  public function get_result()
+  public function get_result(): string
   {
     $bmi = $this->get_bmi();
     if ($bmi < 18.5) {
@@ -65,7 +65,7 @@ class User
     }
   }
   // get_result_color
-  public function get_result_color()
+  public function get_result_color(): string
   {
     $bmi = $this->get_bmi();
     if ($bmi < 18.5) {
