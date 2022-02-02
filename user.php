@@ -7,13 +7,13 @@ declare(strict_types=1);
 class User
 {
   // プロパティ
-  public int $height;
-  public int $weight;
+  private int $height;
+  private int $weight;
 
   // コンストラクタ
   public function __construct(int $height, int $weight)
   {
-    if (!is_numeric($height) && !is_numeric($height)) {
+    if (!is_numeric($height) && !is_numeric($weight)) {
       $height = 0;
       $weight = 0;
     }
@@ -24,7 +24,7 @@ class User
   // set
   public function set_value(int $height, int $weight): void
   {
-    if (!is_numeric($height) && !is_numeric($height)) {
+    if (!is_numeric($height) && !is_numeric($weight)) {
       $height = 0;
       $weight = 0;
     }
@@ -69,17 +69,17 @@ class User
   {
     $bmi = $this->get_bmi();
     if ($bmi < 18.5) {
-      return '低体重';
+      return 'blue';
     } elseif ($bmi < 25) {
-      return '適正体重';
+      return 'white';
     } elseif ($bmi >= 25) {
-      return '肥満';
+      return 'red';
     }
   }
 }
 
 $niimi = new User(184, 64);
-// var_dump($niimi->set_values());
+var_dump($niimi->set_value(170, 60));
 var_dump($niimi->get_bmi());
 var_dump($niimi->get_appropriate_weight());
 var_dump($niimi->get_result());
