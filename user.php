@@ -79,7 +79,8 @@ class User
 }
 
 $niimi = new User(184, 64);
-var_dump($niimi->set_value(170, 60));
+// twenty years later...
+$niimi->set_value(170, 60);
 var_dump($niimi->get_bmi());
 var_dump($niimi->get_appropriate_weight());
 var_dump($niimi->get_result());
