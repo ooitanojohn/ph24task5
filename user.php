@@ -1,17 +1,16 @@
 <?php
 
-declare(strict_types=1);
 /**
  *
  */
 class User
 {
   // プロパティ
-  private int $height;
-  private int $weight;
+  private mixed $height;
+  private mixed $weight;
 
   // コンストラクタ
-  public function __construct(int $height, int $weight)
+  public function __construct(mixed $height, mixed $weight)
   {
     if (!is_numeric($height) && !is_numeric($weight)) {
       $height = 0;
@@ -22,7 +21,7 @@ class User
   }
   // メソッド
   // set
-  public function set_value(int $height, int $weight): void
+  public function set_value(mixed $height, mixed $weight): void
   {
     if (!is_numeric($height) && !is_numeric($weight)) {
       $height = 0;
@@ -30,6 +29,28 @@ class User
     }
     $this->height = $height;
     $this->weight = $weight;
+  }
+  public function set_height(mixed $height): void
+  {
+    if (!is_numeric($height)) {
+      $height = 0;
+    }
+    $this->height = $height;
+  }
+  public function set_weight(mixed $weight): void
+  {
+    if (!is_numeric($weight)) {
+      $weight = 0;
+    }
+    $this->weight = $weight;
+  }
+  public function get_height(): int
+  {
+    return $this->height;
+  }
+  public function get_weight(): int
+  {
+    return $this->weight;
   }
   // get_bmi
   public function get_bmi(): float
@@ -78,10 +99,10 @@ class User
   }
 }
 
-$niimi = new User(184, 64);
+// $niimi = new User(184, 64);
 // twenty years later...
-$niimi->set_value(170, 60);
-var_dump($niimi->get_bmi());
-var_dump($niimi->get_appropriate_weight());
-var_dump($niimi->get_result());
-var_dump($niimi->get_result_color());
+// $niimi->set_value(170, 60);
+// var_dump($niimi->get_bmi());
+// var_dump($niimi->get_appropriate_weight());
+// var_dump($niimi->get_result());
+// var_dump($niimi->get_result_color());
